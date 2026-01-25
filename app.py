@@ -31,11 +31,8 @@ model_files = {
 if uploaded_file:
     data = pd.read_csv(uploaded_file)
 
-    # Drop same columns as training
-    data.drop(columns=["sl_no", "salary"], inplace=True, errors="ignore")
-
-    X = data.drop("status", axis=1)
-    y = data["status"].map({"Placed": 1, "Not Placed": 0})
+    X = df.drop(columns=["Class"], axis = 1)
+    y = df["Class"]
 
     # Load FULL pipeline
     model = joblib.load(f"saved_models/{model_files[model_choice]}")
