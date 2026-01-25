@@ -35,7 +35,7 @@ if uploaded_file:
     y = data["Class"]
 
     # Load FULL pipeline
-    model = joblib.load(f"saved_models/{model_files[model_choice]}")
+    model = joblib.load(f"model/{model_files[model_choice]}")
 
     # Predict (NO scaling / encoding needed)
     y_pred = model.predict(X)
