@@ -31,8 +31,8 @@ model_files = {
 if uploaded_file:
     data = pd.read_csv(uploaded_file)
 
-    X = df.drop(columns=["Class"], axis = 1)
-    y = df["Class"]
+    X = data.drop(columns=["Class"], axis = 1)
+    y = data["Class"]
 
     # Load FULL pipeline
     model = joblib.load(f"saved_models/{model_files[model_choice]}")
