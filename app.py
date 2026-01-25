@@ -102,7 +102,8 @@ if uploaded_file:
         ("smote", SMOTE(random_state=42)),
         ("classifier", model)
     ])
-
+    
+    pipeline.fit(X_train, y_train)
     # Predict (NO scaling / encoding needed)
     y_pred = pipeline.predict(X_test)
 
