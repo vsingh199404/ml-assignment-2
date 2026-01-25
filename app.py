@@ -25,6 +25,7 @@ from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline
 import streamlit as st
 from sklearn.metrics import confusion_matrix, classification_report
+import numpy as np
 
 st.title("Credit Card Fraud Prediction")
 
