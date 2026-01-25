@@ -33,16 +33,18 @@ if uploaded_file:
 
     X = data.drop(columns=["Class"], axis = 1)
     y = data["Class"]
-
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y )
     # Load FULL pipeline
     model = joblib.load(f"model/{model_files[model_choice]}")
 
     # Predict (NO scaling / encoding needed)
-    y_pred = model.predict(X)
+    y_pred = model.predict(X_test)
 
     # Metrics
     st.subheader("📊 Classification Report")
-    st.text(classification_report(y, y_pred))
+    st.text(classification_report(y_test, y_pred))
 
     st.subheader("📉 Confusion Matrix")
-    st.write(confusion_matrix(y, y_pred))
+    st.write(confusion_matrix(y_test, y_pred))
