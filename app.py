@@ -12,6 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.utils.class_weight import compute_class_weight
 from xgboost import XGBClassifier
 from sklearn.metrics import (
     accuracy_score,
@@ -23,9 +24,6 @@ from sklearn.metrics import (
 )
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline
-import streamlit as st
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.utils.class_weight import compute_class_weight
 import numpy as np
 
 st.title("Credit Card Fraud Prediction")
