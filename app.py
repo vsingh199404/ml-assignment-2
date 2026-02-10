@@ -105,11 +105,11 @@ if uploaded_file:
     
     #pipeline.fit(X_train, y_train)
     # Predict (NO scaling / encoding needed)
-    y_pred = pipeline.predict(X_test)
+    y_pred = pipeline.predict(X)
 
     # Metrics
     st.subheader("📊 Classification Report")
-    st.text(classification_report(y_test, y_pred))
+    st.text(classification_report(y, y_pred))
 
     st.subheader("📉 Confusion Matrix")
-    st.write(confusion_matrix(y_test, y_pred))
+    st.write(confusion_matrix(y, y_pred))
