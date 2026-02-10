@@ -60,52 +60,8 @@ if uploaded_file:
 
     X = data.drop(columns=["Class"], axis = 1)
     y = data["Class"]
-    
-    #X_train, X_test, y_train, y_test = train_test_split(
-    #X, y, test_size=0.8, random_state=42, stratify=y )
-    # Load FULL pipeline
-
-    #numeric_features = X.columns.tolist()
-
-    
-
-    #classes = np.array([0, 1])
-    #class_weights = compute_class_weight(
-        #class_weight="balanced",
-        #classes=classes,
-        #y=y_train
-    #)
-
-    #class_weight_dict = {0: class_weights[0], 1: class_weights[1]}
-    
-
-    #numeric_cols = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
-    #categorical_cols = X.select_dtypes(include=["object", "category"]).columns.tolist()
-
-    #num_pipeline = Pipeline(steps=[
-        #("imputer", SimpleImputer(strategy="mean")),
-        #("scaler", StandardScaler())
-    #])
-    #cat_pipeline = Pipeline(steps=[
-        #("imputer", SimpleImputer(strategy="most_frequent")),
-        #("onehot", OneHotEncoder(drop="first", sparse_output=False,handle_unknown="ignore"))
-    #])
-    #preprocessor = ColumnTransformer(
-        #transformers=[
-            #("num", num_pipeline, numeric_cols),
-            #("cat", cat_pipeline, categorical_cols)
-       # ]
-    #)
-    
-
+   
     pipeline = joblib.load(f"model/{model_files[model_choice]}")
-    #pipeline = Pipeline(steps=[
-        #("preprocessing", preprocessor),
-        #("smote", SMOTE(random_state=42)),
-        #("classifier", model)
-    #])
-    
-    #pipeline.fit(X_train, y_train)
     # Predict (NO scaling / encoding needed)
     y_pred = pipeline.predict(X)
 
