@@ -85,4 +85,4 @@ if uploaded_file:
 
 
     st.subheader("📉 Confusion Matrix")
-    st.write(confusion_matrix(y, y_pred))
+    st.write(confusion_matrix(y_true, y_pred))
