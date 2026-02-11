@@ -59,7 +59,7 @@ if uploaded_file:
     data = pd.read_csv(uploaded_file)
 
     X = data.drop(columns=["Class"], axis = 1)
-    y = data["Class"]
+    y_true = data["Class"]
    
     pipeline = joblib.load(f"model/{model_files[model_choice]}")
     # Predict (NO scaling / encoding needed)
