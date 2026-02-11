@@ -63,7 +63,8 @@ if uploaded_file:
    
     pipeline = joblib.load(f"model/{model_files[model_choice]}")
     # Predict (NO scaling / encoding needed)
-    y_pred = pipeline.predict(X)
+    probs = pipeline.predict_proba(X)[:, 1]
+    y_pred = (probs >= 0.2).astype(int) 
 
     # Metrics
     st.subheader("📊 Classification Report")
