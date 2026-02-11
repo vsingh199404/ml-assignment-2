@@ -72,7 +72,7 @@ if uploaded_file:
     report_df = pd.DataFrame(cr).transpose()
 
     # Optional: round for readability
-    report_df = report_df.round(3)
+    #report_df = report_df.round(3)
     st.dataframe(report_df, use_container_width=True)
 
     st.subheader("📉 Confusion Matrix")
