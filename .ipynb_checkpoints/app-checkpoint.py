@@ -68,7 +68,12 @@ if uploaded_file:
 
     # Metrics
     st.subheader("📊 Classification Report")
-    st.text(classification_report(y, y_pred))
+    cr = classification_report(y, y_pred, digits=4, output_dict=True)
+    report_df = pd.DataFrame(report_dict).transpose()
+
+    # Optional: round for readability
+    #report_df = report_df.round(3)
+    st.dataframe(report_df, use_container_width=True)
 
     st.subheader("📉 Confusion Matrix")
     st.write(confusion_matrix(y, y_pred))
