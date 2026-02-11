@@ -72,7 +72,7 @@ if uploaded_file:
     # Compute metrics
     metrics = {
         "Accuracy": accuracy_score(y_true, y_pred),
-        "AUC": roc_auc_score(y_true, y_prob),
+        "AUC": roc_auc_score(y_true, y_pred),
         "Precision": precision_score(y_true, y_pred, pos_label=1),
         "Recall": recall_score(y_true, y_pred, pos_label=1),
         "F1": f1_score(y_true, y_pred, pos_label=1),
