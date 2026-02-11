@@ -67,13 +67,22 @@ if uploaded_file:
     y_pred = (probs >= 0.2).astype(int) 
 
     # Metrics
-    st.subheader("📊 Classification Report")
-    cr = classification_report(y, y_pred, digits=4, output_dict=True)
-    report_df = pd.DataFrame(cr).transpose()
+    st.subheader("📊 Evaluation metrics")
 
-    # Optional: round for readability
-    #report_df = report_df.round(3)
-    st.dataframe(report_df, use_container_width=True)
+    # Compute metrics
+    metrics = {
+        "Accuracy": accuracy_score(y_true, y_pred),
+        "AUC": roc_auc_score(y_true, y_prob),
+        "Precision": precision_score(y_true, y_pred, pos_label=1),
+        "Recall": recall_score(y_true, y_pred, pos_label=1),
+        "F1": f1_score(y_true, y_pred, pos_label=1),
+        "MCC": matthews_corrcoef(y_true, y_pred)
+    }
+
+
+    metrics_df = pd.DataFrame(metrics, index=["Score"]).T.round(4)
+    st.table(metrics_df)
+
 
     st.subheader("📉 Confusion Matrix")
     st.write(confusion_matrix(y, y_pred))
