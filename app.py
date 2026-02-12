@@ -31,6 +31,18 @@ from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.utils.class_weight import compute_class_weight
 
 st.title("Credit Card Fraud Prediction")
+file_url = "https://raw.githubusercontent.com/vsingh199404/ml-assignment-2/refs/heads/main/test.csv"
+
+st.markdown(
+    f"""
+    <a href="{file_url}" download>
+        <button style="background-color:#4CAF50;color:white;padding:10px 20px;border:none;border-radius:5px;">
+            Download Test CSV
+        </button>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
 
 uploaded_file = st.file_uploader("Upload Test CSV", type=["csv"])
 
