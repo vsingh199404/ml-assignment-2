@@ -1,16 +1,16 @@
 # Machine Learning Model Comparison
 
-## a. Problem Statement
+## Problem Statement
 The objective of this project is to detect fraudulent credit card transactions using machine learning techniques. Given the highly imbalanced nature of the Credit Card Fraud Detection dataset, the task involves classifying transactions as fraudulent or legitimate while ensuring effective detection of minority class instances. Multiple classification models are evaluated using metrics such as AUC, Precision, Recall, F1-score, and MCC to identify the most reliable model for fraud detection.
 
 ---
 
-## b. Dataset Description
+## Dataset Description
 The Credit Card Fraud Detection dataset contains credit card transactions made by European cardholders, where each transaction is labeled as either fraudulent or legitimate. The dataset consists of numerical features obtained through Principal Component Analysis (PCA), along with the transaction amount and time. This dataset presents transactions that occurred in two days, where we have 492 frauds out of 284,807 transactions. The dataset is highly unbalanced, the positive class (frauds) account for only 0.172% of all transactions.
 
 ---
 
-## c. Models Used and Evaluation Metrics
+## Models Used and Evaluation Metrics
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |--------------|----------|-----|-----------|--------|----|-----|
@@ -23,7 +23,7 @@ The Credit Card Fraud Detection dataset contains credit card transactions made b
 
 ---
 
-## d. Observations on Model Performance
+## Observations on Model Performance
 
 | ML Model Name | Observation about model performance |
 |--------------|-------------------------------------|
