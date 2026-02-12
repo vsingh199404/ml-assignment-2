@@ -34,16 +34,17 @@ from sklearn.utils.class_weight import compute_class_weight
 st.title("Credit Card Fraud Prediction")
 file_url = "https://raw.githubusercontent.com/vsingh199404/ml-assignment-2/refs/heads/main/test.csv"
 
-st.markdown(
-    f"""
-    <a href="{file_url}" download>
-        <button style="background-color:#4CAF50;color:white;padding:10px 20px;border:none;border-radius:5px;">
-            Download Test CSV
-        </button>
-    </a>
-    """,
-    unsafe_allow_html=True
-)
+response = requests.get(file_url)
+
+if response.status_code == 200:
+    st.download_button(
+        label="Download Test CSV",
+        data=response.content,
+        file_name="test.csv",   # Forces download name
+        mime="text/csv"
+    )
+else:
+    st.error("Unable to load file.")
 
 uploaded_file = st.file_uploader("Upload Test CSV", type=["csv"])
 
